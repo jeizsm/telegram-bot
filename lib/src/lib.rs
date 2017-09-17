@@ -10,10 +10,13 @@ extern crate curl;
 #[cfg(feature = "curl_connector")]
 extern crate tokio_curl;
 
-#[cfg(feature = "hyper_connector")]
+#[cfg(any(feature = "hyper_connector", feature = "rustls_connector"))]
 extern crate hyper;
 #[cfg(feature = "hyper_connector")]
 extern crate hyper_tls;
+
+#[cfg(feature = "rustls_connector")]
+extern crate hyper_rustls;
 
 mod api;
 mod errors;
