@@ -16,7 +16,7 @@ use tokio_core::reactor::Handle;
 use telegram_bot_raw::{HttpRequest, HttpResponse, Method as TelegramMethod, Body as TelegramBody};
 
 use errors::Error;
-use future::{TelegramFuture, NewTelegramFuture};
+use future::TelegramFuture;
 
 use super::_base::Connector;
 
@@ -77,7 +77,7 @@ impl<C: Connect> Connector for HyperConnector<C> {
             })
         });
 
-        TelegramFuture::new(Box::new(future))
+        Box::new(future)
     }
 }
 

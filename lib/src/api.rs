@@ -9,7 +9,7 @@ use tokio_core::reactor::{Handle, Timeout};
 use telegram_bot_raw::{Request, ResponseType};
 
 use connector::{Connector, default_connector};
-use future::{TelegramFuture, NewTelegramFuture};
+use future::TelegramFuture;
 use stream::{NewUpdatesStream, UpdatesStream};
 
 /// Main type for sending requests to the Telegram bot API.
@@ -215,7 +215,7 @@ impl Api {
             .map(|(item, _next)| item)
             .map_err(|(item, _next)| item);
 
-        TelegramFuture::new(Box::new(future))
+        Box::new(future)
     }
 
     /// Send a request to the Telegram server and wait for a response.
@@ -258,6 +258,6 @@ impl Api {
             Req::Response::deserialize(response).map_err(From::from)
         });
 
-        TelegramFuture::new(Box::new(future))
+        Box::new(future)
     }
 }

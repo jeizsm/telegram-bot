@@ -10,7 +10,7 @@ use telegram_bot_raw::{GetUpdates, Update, Integer};
 
 use api::Api;
 use errors::Error;
-use future::{TelegramFuture, NewTelegramFuture};
+use future::TelegramFuture;
 
 const TELEGRAM_LONG_POLL_TIMEOUT_SECONDS: u64 = 5;
 const TELEGRAM_LONG_POLL_ERROR_DELAY_MILLISECONDS: u64 = 500;
@@ -64,7 +64,7 @@ impl Stream for UpdatesStream {
                     timeout.map_err(From::from).map(|()| None)
                 });
 
-                self.current_request = Some(TelegramFuture::new(Box::new(timeout_future)));
+                self.current_request = Some(Box::new(timeout_future));
                 return Err(err)
             }
             Ok(false) => {
