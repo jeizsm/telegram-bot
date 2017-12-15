@@ -16,3 +16,4 @@ pub use telegram_bot_raw::{CanUnbanChatMemberForChat, CanUnbanChatMemberForUser}
 pub use telegram_bot_raw::CanLeaveChat;
 pub use telegram_bot_raw::{CanEditMessageText, CanEditMessageCaption, CanEditMessageReplyMarkup};
 pub use telegram_bot_raw::{CanGetUserProfilePhotos, CanGetFile};
+pub use telegram_bot_raw::{CanGetStickerSet};

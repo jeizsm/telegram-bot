@@ -24,3 +24,14 @@ impl GetStickerSet {
         }
     }
 }
+
+/// Get basic info about a file and prepare it for downloading.
+pub trait CanGetStickerSet {
+    fn get_sticker_set(&self) -> GetStickerSet;
+}
+
+impl<F> CanGetStickerSet for F where F: ToStickerSetName {
+    fn get_sticker_set(&self) -> GetStickerSet {
+        GetStickerSet::new(self.to_sticker_set_name())
+    }
+}
