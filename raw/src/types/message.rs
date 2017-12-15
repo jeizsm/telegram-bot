@@ -525,6 +525,8 @@ pub struct Sticker {
     pub file_size: Option<Integer>,
     /// Name of the sticker set to which the sticker belongs.
     pub set_name: Option<String>,
+    /// For mask stickers, the position where the mask should be placed
+    pub mask_position: Option<MaskPosition>,
 }
 
 #[derive(Debug, Clone, PartialEq, PartialOrd, Deserialize)]

@@ -21,6 +21,7 @@ pub mod send_message;
 pub mod send_venue;
 pub mod unban_chat_member;
 pub mod get_sticker_set;
+pub mod create_new_sticker_set;
 
 pub use self::_base::*;
 pub use self::delete_message::*;
@@ -45,3 +46,4 @@ pub use self::send_message::*;
 pub use self::send_venue::*;
 pub use self::unban_chat_member::*;
 pub use self::get_sticker_set::*;
+pub use self::create_new_sticker_set::*;

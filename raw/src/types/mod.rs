@@ -8,6 +8,7 @@ pub mod refs;
 pub mod reply_markup;
 pub mod response_parameters;
 pub mod update;
+pub mod sticker;
 
 pub use self::chat::*;
 pub use self::chat_member::*;
@@ -17,3 +18,4 @@ pub use self::refs::*;
 pub use self::reply_markup::*;
 pub use self::response_parameters::*;
 pub use self::update::*;
+pub use self::sticker::*;
