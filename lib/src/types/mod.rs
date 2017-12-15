@@ -10,7 +10,7 @@ pub use telegram_bot_raw::{User, Group, Supergroup, Channel, Chat};
 pub use telegram_bot_raw::{UserId, GroupId, SupergroupId, ChannelId, ChatId, ChatRef};
 pub use telegram_bot_raw::{Message, MessageId, MessageKind, Forward, ForwardFrom};
 pub use telegram_bot_raw::{MessageEntity, MessageEntityKind};
-pub use telegram_bot_raw::{Audio, Document, PhotoSize, Sticker, Video, Voice};
+pub use telegram_bot_raw::{Audio, Document, PhotoSize, Sticker, StickerSet, Video, Voice};
 pub use telegram_bot_raw::{Contact, Location, Venue, File, FileRef};
 pub use telegram_bot_raw::{ToChatRef, ToUserId, ToMessageId, ToSourceChat, ToFileRef};
 

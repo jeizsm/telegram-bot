@@ -525,6 +525,18 @@ pub struct Sticker {
     pub file_size: Option<Integer>,
 }
 
+#[derive(Debug, Clone, PartialEq, PartialOrd, Deserialize)]
+pub struct StickerSet {
+    /// Sticker set name.
+    name: String,
+    /// Sticker set title.
+    title: String,
+    /// True, if the sticker set contains masks.
+    contains_masks: bool,
+    /// List of all set stickers.
+    stickers: Vec<Sticker>,
+}
+
 /// This object represents a video file.
 #[derive(Debug, Clone, PartialEq, PartialOrd, Deserialize)]
 pub struct Video {

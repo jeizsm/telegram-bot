@@ -306,3 +306,33 @@ impl Serialize for FileRef {
         serializer.serialize_str(&self.inner)
     }
 }
+
+/// Name of the sticker set.
+#[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
+pub struct StickerSetName {
+    inner: String
+}
+
+impl<'a> From<&'a str> for StickerSetName {
+    fn from(s: &'a str) -> Self {
+        StickerSetName {
+            inner: s.to_string()
+        }
+    }
+}
+
+impl<'a> From<String> for StickerSetName {
+    fn from(s: String) -> Self {
+        StickerSetName {
+            inner: s.clone()
+        }
+    }
+}
+
+impl Serialize for StickerSetName {
+    fn serialize<S>(&self, serializer: S) -> Result<S::Ok, S::Error>
+        where S: Serializer
+    {
+        serializer.serialize_str(&self.inner)
+    }
+}
