@@ -35,6 +35,8 @@ pub struct Supergroup {
     pub title: String,
     /// Username for supergroup.
     pub username: Option<String>,
+    /// For supergroups, name of group sticker set. Returned only in getChat.
+    pub sticker_set_name: Option<String>,
 }
 
 /// This object represents a channel.
@@ -107,6 +109,7 @@ impl<'de> Deserialize<'de> for Chat {
                     id: raw.id.into(),
                     title: required_field!(title),
                     username: raw.username,
+                    sticker_set_name: raw.sticker_set_name,
                 })
             }
             "channel" => {
@@ -139,4 +142,6 @@ pub struct RawChat {
     pub last_name: Option<String>,
     /// True if a group has ‘All Members Are Admins’ enabled.
     pub all_members_are_administrators: Option<bool>,
+    /// For supergroups, name of group sticker set. Returned only in getChat.
+    pub sticker_set_name: Option<String>,
 }

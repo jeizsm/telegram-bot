@@ -307,6 +307,29 @@ impl Serialize for FileRef {
     }
 }
 
+/// Get `StickerSetName` from the type reference.
+pub trait ToStickerSetName {
+    fn to_sticker_set_name(&self) -> Option<StickerSetName>;
+}
+
+impl<S> ToStickerSetName for S where S: Deref, S::Target: ToStickerSetName {
+    fn to_sticker_set_name(&self) -> Option<StickerSetName> {
+        self.deref().to_sticker_set_name()
+    }
+}
+
+macro_rules! sticker_set_name_impls {
+    ($name: ident) => {
+        impl ToStickerSetName for $name {
+            fn to_sticker_set_name(&self) -> Option<StickerSetName> {
+                self.sticker_set_name.clone().map(|a| a.into())
+            }
+        }
+    }
+}
+
+sticker_set_name_impls!(Supergroup);
+
 /// Name of the sticker set.
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd, Ord, Hash)]
 pub struct StickerSetName {
